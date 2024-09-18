@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+# 📱 ListContact - Gerenciador de Contatos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao **ListContact**, uma aplicação para gerenciar seus contatos de forma eficiente e organizada. Este projeto foi desenvolvido utilizando tecnologias modernas para garantir uma experiência de usuário rápida e responsiva.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática ao código.
+- **Vite**: Ferramenta de build extremamente rápida para projetos front-end.
+- **Styled-Components**: Biblioteca para estilização de componentes em React.
 
-## Expanding the ESLint configuration
+## 📋 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Adicionar, editar e remover contatos.
+- Validação de campos para garantir dados corretos.
+- Persistência de dados usando Local Storage.
+- Interface responsiva para uso em dispositivos móveis e desktops.
 
-- Configure the top-level `parserOptions` property like this:
+## 💻 Instruções para executar o projeto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+**Pré-requisitos:**
+- Node.js (versão 14 ou superior)
+- npm ou yarn
+
+<br>
+
+**Instruções:**
+1. Clone o repositório no seu terminal;
+```bash
+git clone https://github.com/LucasBalbueno/ListContact.git
+````
+<br>
+
+2. Abra a sua IDE na pasta clonado e instale as dependências;
+```bash
+# Usando npm
+npm install
+
+# Usando yarn
+yarn install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+<br>
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+3. Execute a aplicação e abra o link de execução;
+```bash
+# Usando npm
+npm run dev
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# Usando yarn
+yarn dev
 ```
