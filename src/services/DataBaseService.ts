@@ -4,8 +4,8 @@ export interface ContactTypes {
     id: number;
     name: string;
     lastName: string,
-    landline: string,
-    mobilephone: string,
+    landLine: string,
+    mobilePhone: string,
     email: string;
     date: string;
 }
@@ -37,11 +37,11 @@ export class DataBase {
         return contacts ? JSON.parse(contacts) : [];
     }
 
-    addContact(name: string, lastName: string, landline: string, mobilephone: string, email: string): void {
+    addContact(name: string, lastName: string, landLine: string, mobilePhone: string, email: string): void {
         const id = this.nextID();
         const date = this.getFormattedDate();
 
-        const contact: ContactTypes = { id, name, lastName, landline, mobilephone, email, date };
+        const contact: ContactTypes = { id, name, lastName, landLine, mobilePhone, email, date };
         const contactsList = this.getContacts();
         contactsList.push(contact);
         localStorage.setItem('contacts', JSON.stringify(contactsList));
@@ -57,4 +57,5 @@ export class DataBase {
         localStorage.clear();
         localStorage.setItem('id', '0');
     }
+
 }

@@ -1,9 +1,13 @@
 import { Contact } from './style';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ModalContext } from '../../context/ModalContext';
 import { DataBase, ContactTypes } from '../../services/DataBaseService';
 
+import { getOldInfos } from '../../services/EditService';
+
 export const Contacts = () => {
+    const { openModalEdit } = useContext(ModalContext);
     const db = new DataBase();
 
     const [ listContact, setListContact ] = useState<ContactTypes[]>([]);
@@ -13,14 +17,17 @@ export const Contacts = () => {
         setListContact(data);
     }, [])
 
+    // db.clearDataBase()
+
     const handleDeleButton = (id: number): void => {
         db.removeContact(id)
         const updatedContacts = listContact.filter(contact => contact.id !== id);
         setListContact(updatedContacts);
     }
 
-    const handleEditButton = () => {
-
+    const handleEditButton = (contact: ContactTypes ): void => {
+        openModalEdit();        
+        getOldInfos(contact);
     }
 
     return (
@@ -32,11 +39,11 @@ export const Contacts = () => {
                         <h2>{`${contact.name} ${contact.lastName}`}</h2>
                         <p>
                             <span>Telefone Fixo: </span>
-                            {contact.landline}
+                            {contact.landLine}
                         </p>
                         <p>
                             <span>Telefone Móvel: </span>
-                            {contact.mobilephone}
+                            {contact.mobilePhone}
                         </p>
                         <p>
                             <span>Email: </span>
@@ -51,7 +58,7 @@ export const Contacts = () => {
                     </div>
 
                     <div>
-                        <button onClick={handleEditButton}>Editar</button>
+                        <button onClick={() => handleEditButton(contact)}>Editar</button>
                         <button onClick={() => handleDeleButton(contact.id)}>Remover</button>
                     </div>
                 </Contact>

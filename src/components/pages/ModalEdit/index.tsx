@@ -3,27 +3,30 @@ import { Background, Container } from "./style"
 import { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { ModalContext } from "../../../context/ModalContext";
 
-import { DataBase } from '../../../services/DataBaseService';
+// import { DataBase } from '../../../services/DataBaseService';
+import { getNewInfos, updateListContact } from '../../../services/EditService'
 
-export const Modal = () => {
-    const { closeModal } = useContext(ModalContext);
+export const ModalEdit = () => {
+    const { closeModalEdit } = useContext(ModalContext);
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [landline, setLandLine] = useState('');
     const [mobilePhone, setMobilePhone] = useState('');
     const [email, setEmail] = useState('');
-    const db = new DataBase();
 
-    const handleCloseModal = () => {
-        closeModal();
+    // const db = new DataBase();
+
+    const handleCloseModalEdit = () => {
+        closeModalEdit()
     }
-
-    const handleFormSubmit = (event: FormEvent) => {
+    
+    const handleSaveEdits = (event: FormEvent) => {
         event.preventDefault();
+        getNewInfos(name, lastName, landline, mobilePhone, email)
 
-        db.addContact(name, lastName, landline, mobilePhone, email);
-        window.location.reload();
-    }
+        updateListContact()
+        closeModalEdit()
+    } 
 
     const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
@@ -48,7 +51,7 @@ export const Modal = () => {
     return (
         <Background>
             <Container>
-                <h3>Preencha os dados do contato</h3>
+                <h3>Edite os dados do contato</h3>
                 <form>
                     <div>
                         <label>Nome</label>
@@ -92,8 +95,8 @@ export const Modal = () => {
                     </div>
 
                     <div className="buttonsForms">
-                        <button className="buttonClose" onClick={handleCloseModal}>Sair</button>
-                        <button className="buttonSave" onClick={handleFormSubmit}>Salvar</button>
+                        <button className="buttonClose" onClick={handleCloseModalEdit}>Sair</button>
+                        <button className="buttonSave" onClick={handleSaveEdits}>Salvar</button>
                     </div>
                 </form>
             </Container>

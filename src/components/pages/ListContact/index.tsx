@@ -6,13 +6,15 @@ import { ModalContext } from '../../../context/ModalContext';
 import { HeaderControls } from '../../HeaderControls';
 import { Contacts } from '../../Contacts';
 import { Modal } from '../Modal';
+import { ModalEdit } from '../ModalEdit';
 
 export const ListContact = () => {
-    const { isModalOpen } = useContext(ModalContext);
+    const { isModalOpen, isEditing } = useContext(ModalContext);
 
     return (
         <>
             {isModalOpen && (<Modal />)}
+            {isEditing && (<ModalEdit />)}
             <Background>
                 <h1>Sua lista de contatos</h1>
                 <Container>
