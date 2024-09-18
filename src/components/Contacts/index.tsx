@@ -11,9 +11,17 @@ export const Contacts = () => {
     useEffect(() => {
         const data = db.getContacts()
         setListContact(data);
-    }, [listContact])
+    }, [])
 
-    console.log(listContact)
+    const handleDeleButton = (id: number): void => {
+        db.removeContact(id)
+        const updatedContacts = listContact.filter(contact => contact.id !== id);
+        setListContact(updatedContacts);
+    }
+
+    const handleEditButton = () => {
+
+    }
 
     return (
         <>
@@ -41,9 +49,10 @@ export const Contacts = () => {
                             {contact.date}
                         </p>
                     </div>
+
                     <div>
-                        <button>Editar</button>
-                        <button>Remover</button>
+                        <button onClick={handleEditButton}>Editar</button>
+                        <button onClick={() => handleDeleButton(contact.id)}>Remover</button>
                     </div>
                 </Contact>
                 ))}
@@ -51,31 +60,3 @@ export const Contacts = () => {
         </>
     )
 }
-
-{/* <Contact>
-                    <div>
-                        <h2>Nome Sobrenome do contato</h2>
-                        <p>
-                            <span>Telefone Fixo: </span>
-                            51 991518045
-                        </p>
-                        <p>
-                            <span>Telefone Móvel: </span>
-                            51 991518045
-                        </p>
-                        <p>
-                            <span>Email: </span>
-                            balbuenolucas04@gmail.com
-                        </p>
-                    </div>
-                    <div>
-                        <p>
-                            <span>Última alteração: </span>
-                            17/09/2024
-                        </p>
-                    </div>
-                    <div>
-                        <button>Editar</button>
-                        <button>Remover</button>
-                    </div>
-                </Contact> */}

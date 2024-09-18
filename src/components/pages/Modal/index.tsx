@@ -22,7 +22,7 @@ export const Modal = () => {
         event.preventDefault();
 
         db.addContact(name, lastName, landline, mobilePhone, email);
-        handleCloseModal();
+        window.location.reload();
     }
 
     const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
