@@ -1,8 +1,6 @@
 import { Background, Container } from './style'
-
 import { useContext } from 'react';
 import { ModalContext } from '../../../context/ModalContext';
-
 import { HeaderControls } from '../../HeaderControls';
 import { Contacts } from '../../Contacts';
 import { Modal } from '../Modal';

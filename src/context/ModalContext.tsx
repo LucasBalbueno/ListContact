@@ -1,27 +1,15 @@
 import React, { createContext, useState, ReactNode } from 'react';
-// import { ContactTypes } from '../services/DataBaseService';
 
-interface ModalContextProps {
-    isModalOpen: boolean;
-    isEditing: boolean;
-    openModal: () => void;
-    closeModal: () => void;
-    openModalEdit: () => void;
-    closeModalEdit: () => void;
-    // setEditingContact: (contact: ContactTypes | null) => void;
-    // editingContact: ContactTypes | null;
-}
-
-const defaultValues: ModalContextProps = {
+const defaultValues = {
     isModalOpen: false,
     isEditing: false,
     openModal: () => {},
     closeModal: () => {},
     openModalEdit: () => {},
     closeModalEdit: () => {},
-    // setEditingContact: () => {},
-    // editingContact: null,
 };
+
+type ModalContextProps = typeof defaultValues;
 
 export const ModalContext = createContext<ModalContextProps>(defaultValues);
 
@@ -32,7 +20,6 @@ interface ModalProviderProps {
 export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
-    // const [editingContact, setEditingContact] = useState<ContactTypes | null>(null);
 
     const openModal = () => {
         setIsModalOpen(true);

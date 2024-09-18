@@ -1,8 +1,6 @@
 import { Background, Container } from "./style"
-
 import { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { ModalContext } from "../../../context/ModalContext";
-
 import { DataBase } from '../../../services/DataBaseService';
 import { authInputs } from '../../../services/AuthInputsService';
 

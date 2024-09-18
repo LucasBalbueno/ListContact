@@ -1,6 +1,5 @@
 import { DataBase } from './DataBaseService'
-
-import { editContactType } from '../types/editContact'
+import { editContactType } from '../types/editContactType'
 
 const db = new DataBase;
 let oldInfos: editContactType | null;

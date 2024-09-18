@@ -1,23 +1,20 @@
 import { Contact } from './style';
-
 import { useState, useEffect, useContext } from 'react';
 import { ModalContext } from '../../context/ModalContext';
-import { DataBase, ContactTypes } from '../../services/DataBaseService';
-
+import { DataBase } from '../../services/DataBaseService';
+import { ContactType } from '../../types/ContactType';
 import { getOldInfos } from '../../services/EditService';
 
 export const Contacts = () => {
     const { openModalEdit } = useContext(ModalContext);
     const db = new DataBase();
 
-    const [ listContact, setListContact ] = useState<ContactTypes[]>([]);
+    const [ listContact, setListContact ] = useState<ContactType[]>([]);
 
     useEffect(() => {
         const data = db.getContacts()
         setListContact(data);
     }, [])
-
-    // db.clearDataBase()
 
     const handleDeleButton = (id: number): void => {
         db.removeContact(id)
@@ -25,7 +22,7 @@ export const Contacts = () => {
         setListContact(updatedContacts);
     }
 
-    const handleEditButton = (contact: ContactTypes ): void => {
+    const handleEditButton = (contact: ContactType ): void => {
         openModalEdit();        
         getOldInfos(contact);
     }

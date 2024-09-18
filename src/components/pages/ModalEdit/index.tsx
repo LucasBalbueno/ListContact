@@ -1,8 +1,6 @@
 import { Background, Container } from "../Modal/style"
-
 import { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { ModalContext } from "../../../context/ModalContext";
-
 import { authInputs } from "../../../services/AuthInputsService";
 import { getNewInfos, updateListContact } from '../../../services/EditService'
 

@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { ModalContext } from '../../context/ModalContext';
-
 import { Container } from "./style";
-
 import { DataBase } from "../../services/DataBaseService";
 
 export const HeaderControls = () => {

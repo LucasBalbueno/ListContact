@@ -1,14 +1,5 @@
 import { format } from 'date-fns-tz';
-
-export interface ContactTypes {
-    id: number;
-    name: string;
-    lastName: string,
-    landLine: string,
-    mobilePhone: string,
-    email: string;
-    date: string;
-}
+import { ContactType } from '../types/ContactType';
 
 export class DataBase {
     constructor() {
@@ -32,7 +23,7 @@ export class DataBase {
         return date;
     }
 
-    getContacts(): ContactTypes[] {
+    getContacts(): ContactType[] {
         const contacts = localStorage.getItem('contacts');
         return contacts ? JSON.parse(contacts) : [];
     }
@@ -41,7 +32,7 @@ export class DataBase {
         const id = this.nextID();
         const date = this.getFormattedDate();
 
-        const contact: ContactTypes = { id, name, lastName, landLine, mobilePhone, email, date };
+        const contact: ContactType = { id, name, lastName, landLine, mobilePhone, email, date };
         const contactsList = this.getContacts();
         contactsList.push(contact);
         localStorage.setItem('contacts', JSON.stringify(contactsList));
