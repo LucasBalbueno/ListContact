@@ -11,6 +11,10 @@ export const Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media  (max-width: 900px) {
+
+    }
 `;
 
 export const Container = styled.main`
@@ -82,6 +86,18 @@ export const Container = styled.main`
 
         .buttonSave {
             background-color: green;
+        }
+    }
+
+    @media  (max-width: 900px) {
+        width: 90%;
+
+        h3 {
+            text-align: center;
+        }
+        
+        p {
+            text-align: center;
         }
     }
 `;

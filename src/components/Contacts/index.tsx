@@ -55,8 +55,8 @@ export const Contacts = () => {
                     </div>
 
                     <div>
-                        <button onClick={() => handleEditButton(contact)}>Editar</button>
-                        <button onClick={() => handleDeleButton(contact.id)}>Remover</button>
+                        <button className='buttonEdit' onClick={() => handleEditButton(contact)}>Editar</button>
+                        <button className='buttonRemove' onClick={() => handleDeleButton(contact.id)}>Remover</button>
                     </div>
                 </Contact>
                 ))}

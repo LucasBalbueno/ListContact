@@ -23,4 +23,34 @@ export const Contact = styled.li`
             font-weight: bold;
         }
     }
+
+    button{
+        border: none;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: .5rem;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+    }
+
+    .buttonEdit {
+        margin-right: .5rem;
+        background-color: blue;
+    }
+
+    .buttonRemove {
+        background-color: red;
+    }
+
+    @media  (max-width: 900px) {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+    }
+    }
 `;

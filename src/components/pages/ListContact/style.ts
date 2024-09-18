@@ -15,7 +15,13 @@ export const Background = styled.main`
         font-weight: bold;
         margin-bottom: 2rem;
     }
-    `;
+
+    @media  (max-width: 1200px) {
+        h1 {
+            text-align: center;
+        }
+    }
+`;
 
 export const Container = styled.div`
     background-color: #333333;
@@ -23,4 +29,8 @@ export const Container = styled.div`
     height: 70vh;
     border-radius: 20px;
     overflow-y: scroll;
+
+    @media  (max-width: 1200px) {
+        width: 95%;
+    }
 `;

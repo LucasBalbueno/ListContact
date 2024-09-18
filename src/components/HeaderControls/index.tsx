@@ -20,13 +20,8 @@ export const HeaderControls = () => {
         <>
             <Container>
                 <div>
-                    <input type="search" />
-                    <button>Pesquisar</button>
-                </div>
-
-                <div>
-                    <button onClick={handleOpenModal}>Adicionar</button>
-                    <button onClick={handleResetList}>Limpar lista</button>
+                    <button className="buttonAdd" onClick={handleOpenModal}>Adicionar</button>
+                    <button className="buttonReset" onClick={handleResetList}>Limpar lista</button>
                 </div>
             </Container>
         </>
