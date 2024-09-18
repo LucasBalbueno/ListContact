@@ -4,9 +4,7 @@ import { ModalContext } from '../../context/ModalContext';
 import { Container } from "./style";
 
 export const HeaderControls = () => {
-    const { isModalOpen, openModal } = useContext(ModalContext);
-
-    console.log(isModalOpen)
+    const { openModal } = useContext(ModalContext);
     
     const handleOpenModal = () => {
         openModal();
