@@ -29,6 +29,10 @@ export const Container = styled.main`
         font-weight: bold;
         color: green;
     }
+
+    p{
+        margin-top: .5rem;
+    }
     
     form {
         width: 80%;

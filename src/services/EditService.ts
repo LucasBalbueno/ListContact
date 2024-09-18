@@ -25,12 +25,10 @@ export const getNewInfos = (name: string, lastName: string, landLine: string, mo
 export const updateListContact = () => {
     if (newInfos === null) {
         throw new Error('Informações velhas vazias');
-        return
     }
     
     if (oldInfos === null) {
         throw new Error('Informações antigas vazias');
-        return
     }
 
     const id = oldInfos.id;
@@ -42,8 +40,6 @@ export const updateListContact = () => {
 
     db.removeContact(id);
 
-    // O REACT AVISA QUE ESSES VALORES PODEM SER NULL, MOMENTANEAMENTE COLOCAMOS O ! E DEPOIS DAS VERIFICAÇÕES ESTAREM SALVAS A GENTE RETIRA
-    // TIRAR O !
     db.addContact(name!, lastName!, landLine!, mobilePhone!, email!)
     window.location.reload();
 }

@@ -1,4 +1,4 @@
-import { Background, Container } from "./style"
+import { Background, Container } from "../Modal/style"
 
 import { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { ModalContext } from "../../../context/ModalContext";
@@ -70,6 +70,7 @@ export const ModalEdit = () => {
         <Background>
             <Container>
                 <h3>Edite os dados do contato</h3>
+                <p>Preencha apenas os campos que quiser alterar.</p>
                 <form>
                     <div>
                         <label>Nome</label>

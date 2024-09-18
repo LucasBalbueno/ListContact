@@ -105,7 +105,7 @@ export const Modal = () => {
 
                     <div className="buttonsForms">
                         <button className="buttonClose" onClick={handleCloseModal}>Sair</button>
-                        <button className="buttonSave" onClick={handleFormSubmit}>Salvar</button>
+                        <button className="buttonSave" onClick={handleFormSubmit}>Adicionar</button>
                     </div>
                 </form>
             </Container>
