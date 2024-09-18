@@ -3,7 +3,7 @@ import { Background, Container } from "./style"
 import { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { ModalContext } from "../../../context/ModalContext";
 
-// import { DataBase } from '../../../services/DataBaseService';
+import { authInputs } from "../../../services/AuthInputsService";
 import { getNewInfos, updateListContact } from '../../../services/EditService'
 
 export const ModalEdit = () => {
@@ -14,7 +14,7 @@ export const ModalEdit = () => {
     const [mobilePhone, setMobilePhone] = useState('');
     const [email, setEmail] = useState('');
 
-    // const db = new DataBase();
+    const auth = new authInputs();
 
     const handleCloseModalEdit = () => {
         closeModalEdit()
@@ -22,10 +22,28 @@ export const ModalEdit = () => {
     
     const handleSaveEdits = (event: FormEvent) => {
         event.preventDefault();
-        getNewInfos(name, lastName, landline, mobilePhone, email)
 
-        updateListContact()
-        closeModalEdit()
+        let landLineAuthentic;
+        let mobilePhoneAuthentic;
+        let emailAuthentic;
+
+        if(landline !== '') {
+            landLineAuthentic = auth.authLandLine(landline);
+        }
+
+        if(mobilePhone !== '') {
+            mobilePhoneAuthentic = auth.authMobilePhone(mobilePhone);
+        }
+
+        if(email !== '') {
+            emailAuthentic = auth.authEmail(email);
+        }
+
+        if (landLineAuthentic !== false && mobilePhoneAuthentic !== false && emailAuthentic !== false) {
+            getNewInfos(name, lastName, landline, mobilePhone, email)
+            updateListContact()
+            closeModalEdit()
+        }
     } 
 
     const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {

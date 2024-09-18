@@ -4,6 +4,7 @@ import { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { ModalContext } from "../../../context/ModalContext";
 
 import { DataBase } from '../../../services/DataBaseService';
+import { authInputs } from '../../../services/AuthInputsService';
 
 export const Modal = () => {
     const { closeModal } = useContext(ModalContext);
@@ -13,6 +14,7 @@ export const Modal = () => {
     const [mobilePhone, setMobilePhone] = useState('');
     const [email, setEmail] = useState('');
     const db = new DataBase();
+    const auth = new authInputs();
 
     const handleCloseModal = () => {
         closeModal();
@@ -20,15 +22,22 @@ export const Modal = () => {
 
     const handleFormSubmit = (event: FormEvent) => {
         event.preventDefault();
+        const nameAuthentic = auth.authName(name);
+        const lastNameAuthentic = auth.authLastName(lastName)
+        const landLineAuthentic = auth.authLandLine(landline);
+        const mobilePhoneAutentic = auth.authMobilePhone(mobilePhone);
+        const emailAuthentic = auth.authEmail(email);
 
-        db.addContact(name, lastName, landline, mobilePhone, email);
-        window.location.reload();
+        if (nameAuthentic !== false && lastNameAuthentic !== false && landLineAuthentic !== false && mobilePhoneAutentic !== false && emailAuthentic !== false) {
+            db.addContact(name, lastName, landline, mobilePhone, email);
+            window.location.reload();
+        }
     }
 
     const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
     }
-
+    
     const handleLastNameChange = (event: ChangeEvent<HTMLInputElement>) => {
         setLastName(event.target.value);
     }
@@ -54,14 +63,16 @@ export const Modal = () => {
                         <label>Nome</label>
                         <input
                             type="text"
+                            maxLength={30}
                             value={name}
                             onChange={handleNameChange}
-                        />
+                            />
                     </div>
                     <div>
                         <label>Sobrenone</label>
                         <input
                             type="text"
+                            maxLength={30}
                             value={lastName}
                             onChange={handleLastNameChange}
                         />
@@ -72,7 +83,7 @@ export const Modal = () => {
                             type="number"
                             value={landline}
                             onChange={handleLandLineChange}
-                        />
+                            />
                     </div>
                     <div>
                         <label>Telefone Móvel</label>
@@ -86,6 +97,7 @@ export const Modal = () => {
                         <label>Email</label>
                         <input
                             type="email"
+                            maxLength={50}
                             value={email}
                             onChange={handleEmailChange}
                         />
