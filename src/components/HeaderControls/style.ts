@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.header`
     border-radius: 20px 20px 0 0;
     height: 13%;
-    background-color: green;
+    background-color: rgb(42, 109, 73);
     padding: .5rem 2rem;
     display: flex;
     justify-content: center;
@@ -21,12 +21,12 @@ export const Container = styled.header`
     
     .buttonAdd {
         margin-right: 2rem;
-        background-color: black;
-        color: white;
+        background-color: rgb(254, 254, 227);
+        color: black;
     }
     
     .buttonReset {
-        background-color: #FFD700;
+        background-color:rgb(254, 254, 227);
         color: black;
     }
 

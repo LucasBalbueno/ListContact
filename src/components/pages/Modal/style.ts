@@ -31,7 +31,7 @@ export const Container = styled.main`
     h3 {
         font-size: 30px;
         font-weight: bold;
-        color: green;
+        color: rgb(42, 109, 73);
     }
 
     p{
@@ -85,7 +85,7 @@ export const Container = styled.main`
         }
 
         .buttonSave {
-            background-color: green;
+            background-color: rgb(42, 109, 73);
         }
     }
 

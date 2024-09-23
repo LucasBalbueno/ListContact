@@ -48,6 +48,6 @@ export const GlobalStyle = createGlobalStyle`
     main {
         color: white;
         font-size: 17px;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Poppins", sans-serif;
     }
 `;

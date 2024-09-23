@@ -19,7 +19,7 @@ export const Contact = styled.li`
         margin-bottom: .5rem;
 
         span {
-            color: green;
+            color:  rgb(42, 109, 73);
             font-weight: bold;
         }
     }

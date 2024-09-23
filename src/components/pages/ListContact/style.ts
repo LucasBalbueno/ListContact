@@ -14,6 +14,7 @@ export const Background = styled.main`
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 2rem;
+        color: rgb(42, 109, 73);
     }
 
     @media  (max-width: 1200px) {
@@ -24,11 +25,12 @@ export const Background = styled.main`
 `;
 
 export const Container = styled.div`
-    background-color: #333333;
+    background-color: rgb(254, 254, 227);
     width: 70%;
     height: 70vh;
     border-radius: 20px;
     overflow-y: scroll;
+    border: 2px solid white;
 
     @media  (max-width: 1200px) {
         width: 95%;
